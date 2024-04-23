@@ -1,0 +1,20 @@
+import frutas.*
+import personajes.*
+test "manzana arcoiris" {
+	martin.comprarFruta(manzana)
+	assert.equals(7, manzana.valorNutricional())
+
+	manzana.ponerseAmarilla()
+	assert.equals(5, manzana.valorNutricional())
+	
+	martin.nuevoDia()
+	assert.equals(14, manzana.valorNutricional())
+}
+
+test "la mandarina se reseca" {
+	martin.comprarFruta(mandarina)
+	assert.equals(12, mandarina.valorNutricional())
+	
+	martin.nuevoDia()
+	assert.equals(10, mandarina.valorNutricional())
+}

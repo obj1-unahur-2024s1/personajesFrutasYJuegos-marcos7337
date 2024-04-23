@@ -1,0 +1,31 @@
+import personajes.*
+import frutas.*
+import equipo.*
+import juegos.*
+
+test "asignar mejor tecnico" {
+	equipo.asignarDirectorTecnico(pepe)
+	equipo.incorporarTecnico(maria)
+	
+	assert.that(integrantes.contains(maria))
+	assert.notThat(integrantes.contains(pepe))
+	
+	equipo.incorporarTecnico(martin)
+	
+	assert.that(integrantes.contains(maria))
+	assert.notThat(integrantes.contains(martin))
+}
+
+test "energia y felicidad" {
+	equipo.asignarDirectorTecnico(maria)
+	equipo.asignarJugadorDerecho(martin)
+	equipo.asignarJugadorIzquierdo(pepe)
+	
+	assert.equals(130, equipo.promedioDeEnergia())
+	assert.that(equipo.elEquipoEstaFeliz())
+	
+	martin.hacerDeporte(voley, 20)
+	
+	assert.equals(117, equipo.promedioDeEnergia())
+	assert.notThat(equipo.elEquipoEstaFeliz())
+}

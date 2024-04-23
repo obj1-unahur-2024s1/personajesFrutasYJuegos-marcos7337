@@ -1,0 +1,56 @@
+import juegos.*
+import personajes.*
+
+test "jugando voley" {
+	martin.hacerDeporte(voley, 30)
+	maria.hacerDeporte(voley, 30)
+	
+	assert.equals(40, martin.energia())
+	assert.equals(94, maria.energia())
+}
+
+test "jugando futbol" {
+	martin.hacerDeporte(futbol, 20)
+	maria.hacerDeporte(futbol, 20)
+	
+	assert.equals(90, martin.energia())
+	assert.equals(194, maria.energia())
+	
+	futbol.setCosto(60)
+	martin.hacerDeporte(futbol, 100)
+	maria.hacerDeporte(futbol, 100)
+	
+	assert.equals(30, martin.energia())
+	assert.equals(74, maria.energia())
+}
+
+test "hacen aerobic" {
+	martin.hacerDeporte(aerobic, 20)
+	maria.hacerDeporte(aerobic, 20)
+	
+	assert.equals(110, martin.energia())
+	assert.equals(234, maria.energia())
+	
+	ciudad.esMedioDia()
+	martin.hacerDeporte(aerobic, 10)
+	maria.hacerDeporte(aerobic, 10)
+	
+	assert.equals(125, martin.energia())
+	assert.equals(264, maria.energia())
+}
+
+test "juegan basket" {
+	ciudad.esDeNoche()
+	martin.hacerDeporte(basket, 10)
+	maria.hacerDeporte(basket, 10)
+	
+	assert.equals(88, martin.energia())
+	assert.equals(190, maria.energia())
+	
+	ciudad.esMedioDia()
+	martin.hacerDeporte(basket, 20)
+	maria.hacerDeporte(basket, 20)
+	
+	assert.equals(63, martin.energia())
+	assert.equals(140, maria.energia())
+}

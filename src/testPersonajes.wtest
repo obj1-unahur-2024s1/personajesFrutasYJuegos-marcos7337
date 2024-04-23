@@ -1,0 +1,39 @@
+import personajes.*
+import frutas.*
+import juegos.*
+
+test "martin hace voley y come un poco" {
+	martin.hacerDeporte(voley,15)
+	
+	assert.equals(70, martin.energia())
+	assert.that(!martin.esFeliz())
+	
+	martin.comprarFruta(mandarina)
+	martin.comer()
+	
+	assert.that(martin.esFeliz())
+}
+
+test "la fruta pasa el dia en la despensa" {
+	martin.comprarFruta(mandarina)
+	assert.equals(12, mandarina.valorNutricional())
+	
+	martin.nuevoDia()
+	assert.equals(10, mandarina.valorNutricional())
+
+	martin.comprarFruta(manzana)
+	assert.equals(7, manzana.valorNutricional())
+	
+	martin.nuevoDia()
+	assert.equals(14, manzana.valorNutricional())
+}
+
+test "maria hace deporte" {
+	futbol.setCosto(90)
+	maria.hacerDeporte(futbol, 30)
+	
+	assert.that(!maria.esFeliz())
+	
+	amuleto.setColor(amarillo)
+	assert.that(maria.esFeliz())
+}
